@@ -27,7 +27,7 @@ Features
 
 1. Clone the repository:
    
-•	git clone https://github.com/BENEGUSENGA_MBABAZI_Fidelite/interactive-photo-gallery.git
+•	git clone https://github.com/fidelite123/interactive-photo-gallery.git
    
 
 2. Navigate to the project directory:
