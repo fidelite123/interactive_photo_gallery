@@ -1,257 +1,158 @@
-@import url('https://fonts.cdnfonts.com/css/d-din');
+/* Importing google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* ============== General Css =========== */
+* {
+  font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  color: var(--secondary-color);
+}
 body {
-    font-family: Arial, sans-serif;
-    background-color: #333;
-    color: white;
-    margin: 0;
-    padding: 0;
+  background-color: var(--primary-color);
 }
-
-.intro {
-    background: #B22222;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
-    width: 100%;
-    padding: 20px;
-    border-radius: 40px;
-    position: relative;
-    transition: transform 0.3s ease, border 0.3s ease;
-    border: 2px solid transparent; /* Initial border setting */
+html {
+  scroll-behavior: smooth;
 }
+:root {
+  /* colors */
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+  --link-color: rgb(13, 134, 134);
+  --gray-color: rgb(116, 126, 126);
 
-.intro:hover {
-    border: 2px solid skyblue; /* Border on hover */
+  /* width */
+  --lg-screen: 85%;
+  --md-screen: 95%;
+  --sm-screen: 95%;
+  /* transition */
+  --transition: all 0.3s ease-in-out;
 }
-
+img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
 h1 {
-    color: grey;
-    font-size: 20px;
-    margin-bottom: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  font-size: 20px;
 }
 
-.text {
-    position: relative;
-    text-decoration: none;
-    transition: text-decoration-color 0.3s ease;
-    font-family: Poppins;
-    font-size: 80px;
-    font-weight: 300;
-    line-height: 1.5;
-    text-align: left;
-    max-width: 1140px;
+.container {
+  width: var(--lg-screen);
+  margin: 0 auto;
 }
 
-.text:hover {
-    text-decoration: underline;
-    text-decoration-color: skyblue;
+/* ============== End of General Css =========== */
+
+/* ==================== Gallery Css =============  */
+#gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
 }
 
-.gallery-section {
-    margin-bottom: 20px;
-    width: 100%;
+.galleryWrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.2rem;
 }
-
-.gallery-section h2 {
-    color: grey;
-    font-size: 20px;
-    margin-bottom: 20px;
+.galleryCard {
+  position: relative;
+  overflow: hidden;
 }
-
-.gallery01 {
-    display: flex;
-    gap: 2px;
-    margin-bottom: 20px;
-    opacity: 1;
+.galleryCard img {
+  transition: var(--transition);
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
 }
-
-.gallery03 {
-    display: none;
-    flex-wrap: wrap;
-    gap: 2px;
+.galleryCard:hover img {
+  transform: scale(1.1);
+  filter: blur(5px) grayscale(100%);
 }
-
-.gallery01 .gallery-item {
-    width: 293px;
-    height: 588px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.3s ease, border 0.3s ease; /* Transition for transform and border */
-    border: 2px solid transparent; /* Initial border setting */
+.galleryOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 3rem;
 }
-
-.gallery01 .gallery-item:hover {
-    transform: scale(1.05);
-    border: 2px solid skyblue; /* Border on hover */
+.galleryOverlay:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
-
-.gallery01 .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0px;
+.contents span,
+i {
+  color: aqua !important;
 }
+.more {
+  /* background-color: aqua; */
+  display: none;
+  color: var(--link-color);
+  transition: var(--transition);
+}
+.galleryOverlay:hover .more {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+}
+.contents {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  transition: var(--transition);
+}
+.contents .location {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: var(--gray-color);
+}
+/* ==================== End of Gallery Css =============  */
 
-.gallery01 .Heading {
-    font-family: 'D-DIN', Arial, sans-serif;
-    width: 213px;
-    height: 76px;
-    position: absolute;
-    bottom: 40px;
-    left: 10px;
-    font-size: 38px;
+/* media query for responsiveness  */
+
+/* Tablet mode */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    width: var(--md-screen);
+  }
+  .galleryWrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .galleryOverlay {
+    padding: 1rem;
+  }
+  .contents h1 {
     font-weight: 700;
-    line-height: 38px;
-    color: white;
-    opacity: 1; /* Always visible */
+    line-height: 25px;
+    font-size: 16px;
+  }
 }
 
-.gallery01 .Description {
-    font-family: Poppins;
-    position: absolute;
-    bottom: 5px;
-    left: 10px;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    color: white;
-    opacity: 0.7;
-}
-
-.gallery03 .gallery-items {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.gallery03 .gallery-item {
-    flex: 1 0 24.5%; 
-    max-width: 24.5%;
-    height: 600px;
-    transition: transform 0.3s ease, border 0.3s ease; /* Transition for transform and border */
-    border: 2px solid transparent; /* Initial border setting */
-}
-
-.gallery03 .gallery-item:hover {
-    transform: scale(1.05);
-    border: 2px solid skyblue; /* Border on hover */
-}
-
-.gallery03 .gallery-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0px;
-}
-
-/* Modal  */
-.modal {
+/* Phone mode */
+@media only screen and (max-width: 767px) {
+  .container {
+    width: var(--sm-screen);
+  }
+  .galleryWrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .galleryOverlay {
+    padding: 0.5rem;
     display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
+  }
 }
-
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-}
-
-#caption {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-}
-
-.modal-content,
-#caption {
-    animation-name: zoom;
-    animation-duration: 0.6s;
-}
-
-@keyframes zoom {
-    from {
-        transform: scale(0)
-    }
-    to {
-        transform: scale(1)
-    }
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* For screens (mobile devices) */
-@media only screen and (max-width: 768px) {
-    .gallery01 {
-        display: none;
-    }
-
-    .gallery03 {
-        display: flex;
-    }
-
-    .intro {
-        margin-left: 0;
-        padding: 20px;
-        width: 100%;
-    }
-
-    h1 {
-        margin-left: 0;
-    }
-
-    .text {
-        width: auto;
-        height: auto;
-        font-size: 24px;
-        line-height: 1.5;
-    }
-
-    .gallery-section {
-        margin-left: 0;
-    }
-
-    .gallery-item {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: auto;
-    }
-}
+/* End of media query */
