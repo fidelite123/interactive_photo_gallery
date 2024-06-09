@@ -1,0 +1,257 @@
+@import url('https://fonts.cdnfonts.com/css/d-din');
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.intro {
+    background: #B22222;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    width: 100%;
+    padding: 20px;
+    border-radius: 40px;
+    position: relative;
+    transition: transform 0.3s ease, border 0.3s ease;
+    border: 2px solid transparent; /* Initial border setting */
+}
+
+.intro:hover {
+    border: 2px solid skyblue; /* Border on hover */
+}
+
+h1 {
+    color: grey;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.text {
+    position: relative;
+    text-decoration: none;
+    transition: text-decoration-color 0.3s ease;
+    font-family: Poppins;
+    font-size: 80px;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: left;
+    max-width: 1140px;
+}
+
+.text:hover {
+    text-decoration: underline;
+    text-decoration-color: skyblue;
+}
+
+.gallery-section {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.gallery-section h2 {
+    color: grey;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.gallery01 {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 20px;
+    opacity: 1;
+}
+
+.gallery03 {
+    display: none;
+    flex-wrap: wrap;
+    gap: 2px;
+}
+
+.gallery01 .gallery-item {
+    width: 293px;
+    height: 588px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, border 0.3s ease; /* Transition for transform and border */
+    border: 2px solid transparent; /* Initial border setting */
+}
+
+.gallery01 .gallery-item:hover {
+    transform: scale(1.05);
+    border: 2px solid skyblue; /* Border on hover */
+}
+
+.gallery01 .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+.gallery01 .Heading {
+    font-family: 'D-DIN', Arial, sans-serif;
+    width: 213px;
+    height: 76px;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 38px;
+    color: white;
+    opacity: 1; /* Always visible */
+}
+
+.gallery01 .Description {
+    font-family: Poppins;
+    position: absolute;
+    bottom: 5px;
+    left: 10px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: white;
+    opacity: 0.7;
+}
+
+.gallery03 .gallery-items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.gallery03 .gallery-item {
+    flex: 1 0 24.5%; 
+    max-width: 24.5%;
+    height: 600px;
+    transition: transform 0.3s ease, border 0.3s ease; /* Transition for transform and border */
+    border: 2px solid transparent; /* Initial border setting */
+}
+
+.gallery03 .gallery-item:hover {
+    transform: scale(1.05);
+    border: 2px solid skyblue; /* Border on hover */
+}
+
+.gallery03 .gallery-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0px;
+}
+
+/* Modal  */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+}
+
+.modal-content,
+#caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* For screens (mobile devices) */
+@media only screen and (max-width: 768px) {
+    .gallery01 {
+        display: none;
+    }
+
+    .gallery03 {
+        display: flex;
+    }
+
+    .intro {
+        margin-left: 0;
+        padding: 20px;
+        width: 100%;
+    }
+
+    h1 {
+        margin-left: 0;
+    }
+
+    .text {
+        width: auto;
+        height: auto;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .gallery-section {
+        margin-left: 0;
+    }
+
+    .gallery-item {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+    }
+}
