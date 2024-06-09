@@ -1,45 +1,50 @@
-// Get all gallery items
-const galleryItems = document.querySelectorAll('.gallery01 .gallery-item');
 
-// Function to show details
-function showDetails(item, show) {
-    const heading = item.querySelector('.Heading');
-    const description = item.querySelector('.Description');
-    heading.style.opacity = show ? '1' : '0';
-    description.style.opacity = show ? '1' : '0.7';
-}
+// Array containing the gallery data
+const galleryData = [
+    {
+        imgSrc: "./images/fennec-fox.png",
+        title: "FENNEC FOX",
+        location: "India",
+    },
+    {
+        imgSrc: "./images/humpback-whale.png",
+        title: "HUMPBACK WHALE",
+        location: "south africa",
+    },
+    {
+        imgSrc: "./images/baboon.png",
+        title: "COMMON,BROWN BABOON",
+        location: "south africa"
+    },
+    {
+        imgSrc: "./images/spotted-deer.png",
+        title: "SPOTTED DEER",
+        location: "amazon",
+    },
+];
 
-// Add hover interaction and click event to open modal
-galleryItems.forEach(item => {
-    item.addEventListener('mouseenter', () => showDetails(item, true));
-    item.addEventListener('mouseleave', () => showDetails(item, false));
-    item.addEventListener('click', () => {
-        const imgSrc = item.querySelector('img').src;
-        const caption = item.querySelector('.Heading').innerText;
-        openModal(imgSrc, caption);
+// Function to create gallery cards
+function createGalleryCards() {
+    const galleryWrapper = document.querySelector(".galleryWrapper");
+    galleryData.forEach((data) => {
+        const galleryCard = document.createElement("div");
+        galleryCard.classList.add("galleryCard");
+
+        galleryCard.innerHTML = `
+    <img src="${data.imgSrc}" alt="${data.title}" />
+    <div class="galleryOverlay">
+      <div class="contents">
+        <h1>${data.title.split(" ").join("<br>")}</h1>
+        <small class="location">${data.location}</small>
+        <p class="more"> <span> Know More </span> <i class="fa-solid fa-arrow-right-long"></i></p>
+        
+      </div>
+    </div>
+  `;
+
+        galleryWrapper.appendChild(galleryCard);
     });
-});
-
-// Modal functionality
-const modal = document.getElementById('myModal');
-const modalImg = document.getElementById('img01');
-const captionText = document.getElementById('caption');
-const closeBtn = document.querySelector('.modal .close');
-
-function openModal(src, caption) {
-    modal.style.display = 'block';
-    modalImg.src = src;
-    captionText.innerText = caption;
 }
 
-// Close the modal when the close button is clicked
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-// Close the modal when clicking outside the image
-modal.addEventListener('click', (event) => {
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-});
+// Call the function to create gallery cards on page load
+document.addEventListener("DOMContentLoaded", createGalleryCards);
