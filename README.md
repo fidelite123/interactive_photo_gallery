@@ -27,15 +27,15 @@ Features
 
 1. Clone the repository:
    
-•	git clone https://github.com/fidelite123/interactive-photo-gallery.git
+•	git clone https://github.com/fidelite123/interactive_photo_gallery.git
    
 
 2. Navigate to the project directory:
   
-•	cd interactive-photo-gallery
+•	cd interactive_photo_gallery
    
 
-3. Open “index.html” in your browser to view the gallery.
+3. Open “gallery.html” in your browser to view the gallery.
 
 Usage
 
@@ -72,7 +72,7 @@ project-root:
 │   ├── js/
 │   │   └── script.js
 │   ├── images/
-│   │   └── (your images here)
+│   │   └── (4 used images)
 │   ├── garelly.html
 │
 └── README.md
@@ -81,10 +81,10 @@ project-root:
 - challenges: Contains the coding challenge solutions.
 - gallery: Contains everything related to the interactive photo gallery.
   - css: Contains the CSS file for styling.
-  - js/: Contains the JavaScript file for interactivity.
+  - js/: Contains the JavaScript file for interactivity and array containing gallery data and call function to create garelly cards on page load.
   - images: Contains the images used in the gallery.
-  - index.html: The main HTML file for the gallery.
-- README.md: Documentation for the project.
+  - gallery.html: The link for css and javascript, and gallery section also div where gallery card will be injected by javascript.
+- README.md: file that contain necessary information needed to understand the interactive photo gallery project.
 
 Contact
 
